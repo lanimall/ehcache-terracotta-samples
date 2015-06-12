@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false"
+	monitoring="autodetect" dynamicConfig="true" name="Layer7CacheManager">
+
+	<diskStore path="java.io.tmpdir" />
+
+	<terracottaConfig url="${tc-connect-servers}" />
+
+	<defaultCache eternal="false" maxElementsInMemory="1000"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" maxEntriesInCache="1000"
+		statistics="false">
+	</defaultCache>
+
+	<cache name="tc-cache" maxEntriesLocalHeap="300" eternal="false" timeToLiveSeconds="300"
+		overflowToOffHeap="false" maxBytesLocalOffHeap="2047m"
+		maxEntriesInCache="1000" statistics="false">
+
+		<terracotta>
+			<nonstop enabled="true" immediateTimeout="false"
+				timeoutMillis="20000">
+				<timeoutBehavior type="exception" />
+			</nonstop>
+		</terracotta>
+	</cache>
+</ehcache>
+

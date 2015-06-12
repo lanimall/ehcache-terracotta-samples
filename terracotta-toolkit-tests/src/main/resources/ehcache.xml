@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true" name="${tc-cache-manager-name}">
+
+	<diskStore
+		path="/Users/FabienSanglier/MyDev/MyPOCs/CMS/DistributedCache/tmp/" />
+
+	<!-- <sizeOfPolicy maxDepth="10" /> -->
+	<!-- <sizeOfPolicy maxDepth="${ehcache.config.sizeOfPolicy.maxDepth}" maxDepthExceededBehavior="abort" 
+		/> -->
+
+	<terracottaConfig url="${tc-connect-servers}" rejoin="true"/>
+
+	<defaultCache eternal="false" maxElementsInMemory="1000"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" maxElementsOnDisk="10000000"
+		statistics="false">
+	</defaultCache>
+
+	<!-- maxBytesLocalHeap="32m" -->
+	<cache name="UserCache" maxEntriesLocalHeap="${tc-cache-maxentries}" eternal="false"
+		timeToIdleSeconds="120" overflowToOffHeap="true" maxBytesLocalOffHeap="2G"
+		memoryStoreEvictionPolicy="LFU" timeToLiveSeconds="180"
+		maxElementsOnDisk="1000" statistics="false">
+
+
+		<!-- <sizeOfPolicy maxDepth="10" maxDepthExceededBehavior="abort" /> -->
+
+		<terracotta>
+			<nonstop enabled="true" immediateTimeout="true"
+				timeoutMillis="20000">
+				<timeoutBehavior type="noop" />
+			</nonstop>
+		</terracotta>
+		
+		<!-- <terracotta compressionEnabled="true"> <nonstop enabled="true" immediateTimeout="false" 
+			timeoutMillis="30000"> <timeoutBehavior type="exception" /> </nonstop> </terracotta> -->
+	</cache>
+</ehcache>
+

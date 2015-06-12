@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true" name="TestCache">
+
+	<diskStore	path="/Users/FabienSanglier/MyDev/MyPOCs/CMS/DistributedCache/tmp/" />
+
+	<sizeOfPolicy maxDepth="10" maxDepthExceededBehavior="abort" />
+	<!-- <sizeOfPolicy maxDepth="10" /> -->
+
+	<terracottaConfig url="${tc-connect-servers}" />
+
+	<defaultCache eternal="false" maxElementsInMemory="1000"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" maxEntriesInCache="1000"
+		statistics="false">
+	</defaultCache>
+
+<!-- memoryStoreEvictionPolicy="LFU"  error??? -->
+	<cache name="UserCache" maxBytesLocalHeap="32m" eternal="false"
+		timeToIdleSeconds="120" overflowToOffHeap="true" maxBytesLocalOffHeap="1G"
+		timeToLiveSeconds="180"
+		maxEntriesInCache="1000" statistics="false">
+
+		<sizeOfPolicy maxDepth="10" maxDepthExceededBehavior="abort" />
+
+		<terracotta />
+		<!-- <terracotta compressionEnabled="true"> <nonstop enabled="true" immediateTimeout="false" 
+			timeoutMillis="30000"> <timeoutBehavior type="exception" /> </nonstop> </terracotta> -->
+	</cache>
+</ehcache>
+
