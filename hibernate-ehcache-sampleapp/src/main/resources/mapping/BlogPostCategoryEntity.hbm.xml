@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.github.lanimall.domain.BlogPostCategoryEntity" table="blogPostCategory" schema=""
+           catalog="hibernatesample">
+        <composite-id mapped="true" class="com.github.lanimall.domain.BlogPostCategoryEntityPK">
+            <key-property name="blogPostid">
+                <column name="blogPostid" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="blogCategoryid">
+                <column name="blogCategoryid" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <many-to-one name="blogCategoryByBlogCategoryid" class="com.github.lanimall.domain.BlogCategoryEntity">
+            <column name="blogCategoryid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="blogPostByBlogPostid" class="com.github.lanimall.domain.BlogPostEntity">
+            <column name="blogPostid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.github.lanimall.domain.BlogCategoryEntity" table="blogCategory">
+        <cache usage="read-only"/>
+        <id name="blogCategoryid" type="int">
+            <column length="10" name="blogCategoryid"/>
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string">
+            <column name="name"/>
+        </property>
+        <bag name="posts">
+            <key column="blogCategoryid"/>
+            <one-to-many class="com.github.lanimall.domain.BlogPostCategoryEntity"/>
+        </bag>
+    </class>
+</hibernate-mapping>

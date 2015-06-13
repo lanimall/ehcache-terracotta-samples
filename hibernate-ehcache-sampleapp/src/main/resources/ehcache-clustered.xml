@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false"
+         monitoring="autodetect" dynamicConfig="true" name="HibernateEhcacheORM">
+
+    <terracottaConfig url="tcvm:9510,tcvm:9610" rejoin="true"/>
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache maxElementsInMemory="10000"
+                  eternal="false"
+                  timeToIdleSeconds="86400"
+                  timeToLiveSeconds="86400"
+                  maxEntriesInCache="10000000"
+                  memoryStoreEvictionPolicy="LRU"
+                  clearOnFlush="true">
+        <terracotta/>
+    </defaultCache>
+
+    <cache name="org.hibernate.cache.internal.StandardQueryCache"
+           maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="0"></cache>
+
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+           maxElementsInMemory="5000" eternal="true"></cache>
+</ehcache>
