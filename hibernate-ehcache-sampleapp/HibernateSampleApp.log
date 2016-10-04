@@ -1,0 +1,5 @@
+10:38:21.612 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+10:39:03.498 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+10:40:17.045 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+10:44:20.698 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+11:05:44.643 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]

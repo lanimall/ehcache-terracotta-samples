@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true" name="MyFirstTerracottaCacheMgr">
+
+    <terracottaConfig url="${tc.connect.url}" rejoin="true" />
+
+	<!-- Mandatory Default Cache configuration. These settings will be applied 
+		to caches created programmatically using CacheManager.add(String cacheName).
+		The defaultCache has an implicit name "default" which is a reserved cache 
+		name. -->
+	<defaultCache maxElementsInMemory="100" eternal="false"
+		timeToIdleSeconds="1200" timeToLiveSeconds="1200">
+	</defaultCache>
+
+    <!-- maxBytesLocalOffHeap="256m"  -->
+	<cache name="TestCache" maxEntriesLocalHeap="100"
+           timeToIdleSeconds="50" timeToLiveSeconds="300"
+		   maxEntriesInCache="10000">
+		<terracotta>
+			<nonstop immediateTimeout="true" timeoutMillis="10000">
+				<timeoutBehavior type="exception" /> <!-- other types: noop / localReads -->
+			</nonstop>
+		</terracotta>
+	</cache>
+</ehcache>

@@ -13,9 +13,9 @@
         <property name="name" type="string">
             <column name="name"/>
         </property>
-        <bag name="posts">
-            <key column="blogCategoryid"/>
-            <one-to-many class="com.github.lanimall.domain.BlogPostCategoryEntity"/>
-        </bag>
+        <!--<bag name="posts">-->
+            <!--<key column="blogCategoryid"/>-->
+            <!--<many-to-many class="com.github.lanimall.domain.BlogPostCategoryEntity"/>-->
+        <!--</bag>-->
     </class>
 </hibernate-mapping>

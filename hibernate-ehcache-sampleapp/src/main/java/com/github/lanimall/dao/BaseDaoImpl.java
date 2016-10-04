@@ -1,10 +1,7 @@
 package com.github.lanimall.dao;
 
 import com.github.lanimall.domain.QueryCacheProperty;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,24 +18,11 @@ import java.util.Map;
 public abstract class BaseDaoImpl {
     protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    public static final int JDBC_BATCHSIZE_DEFAULT = 50;
-
     @Autowired
-    private SessionFactory sessionFactory;
+    private HibernateService hibernateService;
 
     public Session getSession() {
-        return sessionFactory.getCurrentSession();
-    }
-
-    public void clearSession() {
-        clearSession(false);
-    }
-
-    public void clearSession(boolean close) {
-        getSession().flush();
-        getSession().clear();
-        if (close)
-            getSession().disconnect();
+        return hibernateService.getSession();
     }
 
     public Serializable save(Object domain) {
@@ -48,7 +32,7 @@ public abstract class BaseDaoImpl {
     }
 
     public void saveBulk(final Object[] domain) {
-        saveBulk(domain, JDBC_BATCHSIZE_DEFAULT);
+        saveBulk(domain, hibernateService.JDBC_BATCHSIZE_DEFAULT);
     }
 
     public void saveBulk(final Object[] domain, final int batchSize) {
@@ -56,11 +40,10 @@ public abstract class BaseDaoImpl {
             getSession().save(domain[i]);
             if (i % batchSize == 0) { //batchSize should be same as the JDBC batch size
                 //flush a batch of inserts and release memory:
-                clearSession();
+                hibernateService.clearSession();
             }
         }
-
-        clearSession();
+        hibernateService.clearSession();
     }
 
     public void delete(Object domain) {

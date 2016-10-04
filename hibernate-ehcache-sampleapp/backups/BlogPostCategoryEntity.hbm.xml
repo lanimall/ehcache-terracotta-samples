@@ -4,8 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.github.lanimall.domain.BlogPostCategoryEntity" table="blogPostCategory" schema=""
-           catalog="hibernatesample">
+    <class name="com.github.lanimall.domain.BlogPostCategoryEntity" table="blogPostCategory">
         <composite-id mapped="true" class="com.github.lanimall.domain.BlogPostCategoryEntityPK">
             <key-property name="blogPostid">
                 <column name="blogPostid" sql-type="int" not-null="true"/>

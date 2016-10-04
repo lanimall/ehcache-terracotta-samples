@@ -4,12 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.github.lanimall.domain.BlogCommentEntity" table="blogComment" schema="" catalog="hibernatesample">
+    <class name="com.github.lanimall.domain.BlogCommentEntity" table="blogComment">
+        <cache usage="read-write"/>
         <id name="blogCommentid">
             <column name="blogCommentid" sql-type="int" not-null="true"/>
+            <generator class="increment"/>
         </id>
-        <property name="author">
-            <column name="author" sql-type="varchar"/>
+        <property name="author" type="string">
+            <column name="author"/>
         </property>
         <property name="comment">
             <column name="comment" sql-type="longtext" length="2147483647"/>

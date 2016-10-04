@@ -4,8 +4,8 @@ import org.hibernate.CacheMode;
 
 public class QueryCacheProperty {
 
-    private boolean cachable;
-    private CacheMode cacheMode;
+    private final boolean cachable;
+    private CacheMode cacheMode = CacheMode.NORMAL;
     private String cacheRegion;
 
     public QueryCacheProperty(boolean cachable,
@@ -30,10 +30,6 @@ public class QueryCacheProperty {
 
     public boolean isCachable() {
         return cachable;
-    }
-
-    public void setCachable(boolean cachable) {
-        this.cachable = cachable;
     }
 
     public CacheMode getCacheMode() {

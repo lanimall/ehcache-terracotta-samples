@@ -23,8 +23,13 @@ public class BlogCategoryDaoImpl extends BaseDaoImpl implements BlogCategoryDao 
     }
 
     @Override
-    public List<BlogCategoryEntity> findAll() {
-        return (List<BlogCategoryEntity>) super.getAll(BlogCategoryEntity.class, true);
+    public void saveBatch(BlogCategoryEntity[] obj) {
+        super.saveBulk(obj);
+    }
+
+    @Override
+    public List<BlogCategoryEntity> findAll(int maxSize) {
+        return (List<BlogCategoryEntity>) super.getAll(BlogCategoryEntity.class, maxSize, true);
 
 //        return (List<BlogCategoryEntity>) super.findAll("from " + BlogCategoryEntity.class.getSimpleName(), null, new QueryCacheProperty(true));
     }

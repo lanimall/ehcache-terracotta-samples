@@ -4,9 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.github.lanimall.domain.BlogPostEntity" table="blogPost" schema="" catalog="hibernatesample">
+    <class name="com.github.lanimall.domain.BlogPostEntity" table="blogPost">
+        <cache usage="read-write"/>
         <id name="blogpostid">
             <column name="blogpostid" sql-type="int" not-null="true"/>
+            <generator class="increment"/>
         </id>
         <property name="title">
             <column name="title" sql-type="longtext" length="2147483647"/>
@@ -29,6 +31,15 @@
         <property name="deleted">
             <column name="deleted" sql-type="tinyint"/>
         </property>
-        <one-to-one name="blogCommentByBlogpostid" class="com.github.lanimall.domain.BlogCommentEntity"/>
+        <bag cascade="delete" name="blogComments">
+            <cache usage="read-write"/>
+            <key column="blogCommentid"/>
+            <one-to-many class="com.github.lanimall.domain.BlogCommentEntity"/>
+        </bag>
+        <bag cascade="delete" name="blogCategories">
+            <cache usage="read-write"/>
+            <key column="blogCategoryid"/>
+            <many-to-many class="com.github.lanimall.domain.BlogCategoryEntity" />
+        </bag>
     </class>
 </hibernate-mapping>

@@ -1,0 +1,208 @@
+12:10:25.975 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:10:26.131 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - HHH000388: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:10:26.132 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:10:26.132 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - HHH000388: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:10:26.132 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:10:26.133 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - HHH000388: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:10:26.133 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:10:26.133 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - HHH000388: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references hibernatesample.blogCategory (blogCategoryid)
+12:10:26.133 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:10:26.134 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - HHH000388: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:10:26.134 [main] ERROR o.h.tool.hbm2ddl.SchemaUpdate - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:17:40.912 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:17:41.043 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:17:41.043 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:17:41.043 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:17:41.043 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:17:41.045 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogComment
+12:17:41.045 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogComment'
+12:17:41.046 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPost
+12:17:41.046 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:17:41.046 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPostCategory
+12:17:41.046 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:17:41.060 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:17:41.060 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:17:41.061 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:17:41.061 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:17:41.062 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:17:41.062 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:17:41.063 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references blogCategory (blogCategoryid)
+12:17:41.063 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:17:41.064 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:17:41.064 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:21:59.746 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:21:59.872 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:21:59.873 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:21:59.873 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:21:59.873 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:21:59.875 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogComment
+12:21:59.875 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogComment'
+12:21:59.876 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPost
+12:21:59.876 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:21:59.876 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPostCategory
+12:21:59.876 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:21:59.891 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:21:59.892 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:21:59.892 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:21:59.892 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:21:59.893 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:21:59.893 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:21:59.894 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references blogCategory (blogCategoryid)
+12:21:59.894 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:21:59.894 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:21:59.894 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:22:42.666 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:22:42.823 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:22:42.823 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:22:42.824 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:22:42.824 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:22:42.826 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogComment
+12:22:42.826 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogComment'
+12:22:42.827 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPost
+12:22:42.827 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:22:42.827 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPostCategory
+12:22:42.827 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:22:42.841 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:22:42.842 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:22:42.842 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:22:42.842 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:22:42.844 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:22:42.844 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:22:42.845 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references blogCategory (blogCategoryid)
+12:22:42.845 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:22:42.845 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:22:42.845 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:27:10.273 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:27:10.406 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogComment
+12:27:10.406 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogComment'
+12:27:10.407 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPost
+12:27:10.407 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:27:10.408 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPostCategory
+12:27:10.408 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:27:10.423 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid)) type=MyISAM
+12:27:10.424 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:27:10.424 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid)) type=MyISAM
+12:27:10.424 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:27:10.425 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid)) type=MyISAM
+12:27:10.425 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:27:10.426 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references blogCategory (blogCategoryid)
+12:27:10.426 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:27:10.427 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:27:10.427 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:31:18.448 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:31:18.592 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:31:18.592 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:31:18.593 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:31:18.593 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:31:18.595 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogComment
+12:31:18.595 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogComment'
+12:31:18.595 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPost
+12:31:18.595 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:31:18.596 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPostCategory
+12:31:18.596 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:31:18.611 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:31:18.611 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:31:18.612 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:31:18.612 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:31:18.613 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:31:18.613 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:31:18.614 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references blogCategory (blogCategoryid)
+12:31:18.614 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:31:18.614 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:31:18.614 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:34:54.887 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:34:55.026 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:34:55.026 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:34:55.027 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:34:55.027 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:34:55.029 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogComment
+12:34:55.029 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogComment'
+12:34:55.029 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPost
+12:34:55.029 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:34:55.030 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.blogPostCategory
+12:34:55.030 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - DROP command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:34:55.035 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:34:55.035 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:34:55.036 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:34:55.036 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPost'
+12:34:55.037 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:34:55.037 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - CREATE command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:34:55.038 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references blogCategory (blogCategoryid)
+12:34:55.038 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:34:55.039 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.blogPost (blogpostid)
+12:34:55.039 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - ALTER command denied to user 'hibernateusr'@'192.168.231.1' for table 'blogPostCategory'
+12:39:45.989 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:39:46.135 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.hibernatesampleapp.blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:39:46.135 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPostCategory 
+        drop 
+        foreign key FK_s5wu0yf4vnklnn6er04pryjg' at line 1
+12:39:46.136 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.hibernatesampleapp.blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:39:46.136 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPostCategory 
+        drop 
+        foreign key FK_7y0wm6ptr37khxhk6h4q377o' at line 1
+12:39:46.138 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.hibernatesampleapp.blogComment
+12:39:46.138 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogComment' at line 1
+12:39:46.139 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.hibernatesampleapp.blogPost
+12:39:46.139 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPost' at line 1
+12:39:46.139 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: drop table if exists hibernatesample.hibernatesampleapp.blogPostCategory
+12:39:46.139 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPostCategory' at line 1
+12:39:46.144 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.hibernatesampleapp.blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:39:46.144 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogComment (
+        blogCommentid int not null,
+        author varchar,
+     ' at line 1
+12:39:46.145 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.hibernatesampleapp.blogPost (blogpostid int not null, title longtext, summary longtext, body longtext, dateposted datetime, createdDateTime datetime, modifiedDateTime datetime, deleted tinyint, primary key (blogpostid))
+12:39:46.145 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPost (
+        blogpostid int not null,
+        title longtext,
+        sum' at line 1
+12:39:46.146 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table hibernatesample.hibernatesampleapp.blogPostCategory (blogPostid int not null, blogCategoryid int not null, primary key (blogPostid, blogCategoryid))
+12:39:46.146 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPostCategory (
+        blogPostid int not null,
+        blogCategoryid int ' at line 1
+12:39:46.147 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.hibernatesampleapp.blogPostCategory add constraint FK_s5wu0yf4vnklnn6er04pryjgi foreign key (blogCategoryid) references hibernatesampleapp.blogCategory (blogCategoryid)
+12:39:46.147 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPostCategory 
+        add constraint FK_s5wu0yf4vnklnn6er04pryjgi 
+        ' at line 1
+12:39:46.148 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table hibernatesample.hibernatesampleapp.blogPostCategory add constraint FK_7y0wm6ptr37khxhk6h4q377o2 foreign key (blogPostid) references hibernatesample.hibernatesampleapp.blogPost (blogpostid)
+12:39:46.148 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.blogPostCategory 
+        add constraint FK_7y0wm6ptr37khxhk6h4q377o2 
+        ' at line 1
+12:41:49.791 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:41:49.934 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table blogPostCategory drop foreign key FK_s5wu0yf4vnklnn6er04pryjgi
+12:41:49.934 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - Table 'hibernatesampleapp.blogPostCategory' doesn't exist
+12:41:49.935 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: alter table blogPostCategory drop foreign key FK_7y0wm6ptr37khxhk6h4q377o2
+12:41:49.935 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - Table 'hibernatesampleapp.blogPostCategory' doesn't exist
+12:41:49.943 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:41:49.943 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:46:42.378 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]
+12:46:42.543 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - HHH000389: Unsuccessful: create table blogComment (blogCommentid int not null, author varchar, comment longtext, createdDateTime datetime, deleted tinyint, primary key (blogCommentid))
+12:46:42.543 [main] ERROR o.h.tool.hbm2ddl.SchemaExport - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+        comment longtext,
+        createdDateTime datetime,
+        deleted tin' at line 3
+12:47:58.247 [main] WARN  o.h.c.e.i.s.EhcacheAccessStrategyFactoryImpl - HHH020007: read-only cache configured for mutable entity [com.github.lanimall.domain.BlogCategoryEntity]

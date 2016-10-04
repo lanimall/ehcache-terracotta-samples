@@ -4,8 +4,6 @@
          xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false"
          monitoring="autodetect" dynamicConfig="true" name="HibernateEhcacheORM">
 
-    <terracottaConfig url="tcvm:9510,tcvm:9610" rejoin="true"/>
-
     <diskStore path="java.io.tmpdir"/>
 
     <defaultCache maxElementsInMemory="10000"

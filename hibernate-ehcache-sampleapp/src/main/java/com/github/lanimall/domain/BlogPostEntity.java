@@ -2,6 +2,7 @@ package com.github.lanimall.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by FabienSanglier on 5/27/15.
@@ -17,7 +18,8 @@ public class BlogPostEntity {
     private Timestamp createdDateTime;
     private Timestamp modifiedDateTime;
     private Byte deleted;
-    private BlogCommentEntity blogCommentByBlogpostid;
+    private List<BlogCommentEntity> blogComments;
+    private List<BlogCategoryEntity> blogCategories;
 
     @Id
     @Column(name = "blogpostid", nullable = false, insertable = true, updatable = true)
@@ -99,6 +101,24 @@ public class BlogPostEntity {
         this.deleted = deleted;
     }
 
+    @OneToMany(mappedBy = "blogPostByBlogCommentid")
+    public List<BlogCommentEntity> getBlogComments() {
+        return blogComments;
+    }
+
+    public void setBlogComments(List<BlogCommentEntity> blogComments) {
+        this.blogComments = blogComments;
+    }
+
+    @ManyToMany()
+    public List<BlogCategoryEntity> getBlogCategories() {
+        return blogCategories;
+    }
+
+    public void setBlogCategories(List<BlogCategoryEntity> blogCategories) {
+        this.blogCategories = blogCategories;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -133,12 +153,19 @@ public class BlogPostEntity {
         return result;
     }
 
-    @OneToOne(mappedBy = "blogPostByBlogCommentid")
-    public BlogCommentEntity getBlogCommentByBlogpostid() {
-        return blogCommentByBlogpostid;
-    }
-
-    public void setBlogCommentByBlogpostid(BlogCommentEntity blogCommentByBlogpostid) {
-        this.blogCommentByBlogpostid = blogCommentByBlogpostid;
+    @Override
+    public String toString() {
+        return "BlogPostEntity{" +
+                "blogpostid=" + blogpostid +
+                ", title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                ", body='" + body + '\'' +
+                ", dateposted=" + dateposted +
+                ", createdDateTime=" + createdDateTime +
+                ", modifiedDateTime=" + modifiedDateTime +
+                ", deleted=" + deleted +
+                ", blogComments=" + ((null != blogComments)?blogComments.size():0) +
+                ", blogCategories=" + ((null != blogCategories)?blogCategories.size():0) +
+                '}';
     }
 }

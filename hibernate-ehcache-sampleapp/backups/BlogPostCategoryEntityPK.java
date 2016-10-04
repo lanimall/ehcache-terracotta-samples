@@ -1,21 +1,18 @@
 package com.github.lanimall.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by FabienSanglier on 5/27/15.
  */
-@Entity
-@Table(name = "blogPostCategory", schema = "", catalog = "hibernatesample")
-@IdClass(BlogPostCategoryEntityPK.class)
-public class BlogPostCategoryEntity {
+public class BlogPostCategoryEntityPK implements Serializable {
     private int blogPostid;
     private int blogCategoryid;
-    private BlogCategoryEntity blogCategoryByBlogCategoryid;
-    private BlogPostEntity blogPostByBlogPostid;
 
-    @Id
     @Column(name = "blogPostid", nullable = false, insertable = true, updatable = true)
+    @Id
     public int getBlogPostid() {
         return blogPostid;
     }
@@ -24,8 +21,8 @@ public class BlogPostCategoryEntity {
         this.blogPostid = blogPostid;
     }
 
-    @Id
     @Column(name = "blogCategoryid", nullable = false, insertable = true, updatable = true)
+    @Id
     public int getBlogCategoryid() {
         return blogCategoryid;
     }
@@ -39,7 +36,7 @@ public class BlogPostCategoryEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BlogPostCategoryEntity that = (BlogPostCategoryEntity) o;
+        BlogPostCategoryEntityPK that = (BlogPostCategoryEntityPK) o;
 
         if (blogCategoryid != that.blogCategoryid) return false;
         if (blogPostid != that.blogPostid) return false;
@@ -54,23 +51,11 @@ public class BlogPostCategoryEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "blogCategoryid", referencedColumnName = "blogCategoryid", nullable = false)
-    public BlogCategoryEntity getBlogCategoryByBlogCategoryid() {
-        return blogCategoryByBlogCategoryid;
-    }
-
-    public void setBlogCategoryByBlogCategoryid(BlogCategoryEntity blogCategoryByBlogCategoryid) {
-        this.blogCategoryByBlogCategoryid = blogCategoryByBlogCategoryid;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "blogPostid", referencedColumnName = "blogpostid", nullable = false)
-    public BlogPostEntity getBlogPostByBlogPostid() {
-        return blogPostByBlogPostid;
-    }
-
-    public void setBlogPostByBlogPostid(BlogPostEntity blogPostByBlogPostid) {
-        this.blogPostByBlogPostid = blogPostByBlogPostid;
+    @Override
+    public String toString() {
+        return "BlogPostCategoryEntityPK{" +
+                "blogPostid=" + blogPostid +
+                ", blogCategoryid=" + blogCategoryid +
+                '}';
     }
 }

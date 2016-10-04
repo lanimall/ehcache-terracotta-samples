@@ -51,7 +51,7 @@
                 <value>mapping/BlogCategoryEntity.hbm.xml</value>
                 <value>mapping/BlogCommentEntity.hbm.xml</value>
                 <value>mapping/BlogPostEntity.hbm.xml</value>
-                <value>mapping/BlogPostCategoryEntity.hbm.xml</value>
+                <!--<value>backups/BlogPostCategoryEntity.hbm.xml</value>-->
             </list>
         </property>
     </bean>

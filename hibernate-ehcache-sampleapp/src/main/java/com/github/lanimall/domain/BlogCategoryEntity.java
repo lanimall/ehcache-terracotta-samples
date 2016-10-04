@@ -8,18 +8,9 @@ import java.util.Collection;
  */
 @Entity
 @Table(name = "blogCategory", schema = "", catalog = "hibernatesample")
-public class BlogCategoryEntity {
+public class BlogCategoryEntity implements Comparable {
     private int blogCategoryid;
     private String name;
-    private Collection<BlogPostCategoryEntity> posts;
-
-    public Collection<BlogPostCategoryEntity> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Collection<BlogPostCategoryEntity> posts) {
-        this.posts = posts;
-    }
 
     public BlogCategoryEntity() {
     }
@@ -66,5 +57,18 @@ public class BlogCategoryEntity {
         int result = blogCategoryid;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "BlogCategoryEntity{" +
+                "blogCategoryid=" + blogCategoryid +
+                ", name='" + name +
+                '}';
     }
 }

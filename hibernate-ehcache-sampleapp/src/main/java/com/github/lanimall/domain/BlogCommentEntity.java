@@ -91,4 +91,15 @@ public class BlogCommentEntity {
         result = 31 * result + (deleted != null ? deleted.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "BlogCommentEntity{" +
+                "blogCommentid=" + blogCommentid +
+                ", author='" + author + '\'' +
+                ", comment='" + comment + '\'' +
+                ", createdDateTime=" + createdDateTime +
+                ", deleted=" + deleted +
+                '}';
+    }
 }

@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--<hibernate-core.version>4.1.10.Final</hibernate-core.version>-->
-        <hibernate-core.version>4.3.10.Final</hibernate-core.version>
+        <hibernate-core.version>4.1.10.Final</hibernate-core.version>
         <hibernate-validator-version>4.3.0.Final</hibernate-validator-version>
         <!--<org.springframework.version>3.2.2.RELEASE</org.springframework.version>-->
         <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
@@ -20,12 +20,28 @@
         <junit.version>4.6</junit.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- EhCache -->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache${terracotta.ee.suffix}</artifactId>
+                <version>${ehcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.terracotta</groupId>
+                <artifactId>terracotta-toolkit-runtime${terracotta.ee.suffix}</artifactId>
+                <version>${toolkit.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- MySQL Database -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.0.5</version>
+            <version>5.1.31</version>
         </dependency>
 
         <!-- SLF4J -->
@@ -55,20 +71,8 @@
 
         <dependency>
             <groupId>org.terracotta</groupId>
-            <artifactId>hibernate-terracotta</artifactId>
+            <artifactId>hibernate-ehcache-4.1-terracotta4x</artifactId>
             <version>1.0.0</version>
-        </dependency>
-
-        <!-- EhCache -->
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache${terracotta.ee.suffix}</artifactId>
-            <version>${ehcache.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.terracotta</groupId>
-            <artifactId>terracotta-toolkit-runtime${terracotta.ee.suffix}</artifactId>
-            <version>${toolkit.version}</version>
         </dependency>
 
         <!-- Junit -->
@@ -209,9 +213,9 @@
     <profiles>
         <profile>
             <id>ehcache-2.10-oss</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+            <!--</activation>-->
             <properties>
                 <terracotta.ee.suffix></terracotta.ee.suffix>
                 <ehcache.version>2.10.0</ehcache.version>
@@ -220,6 +224,19 @@
                 <slf4j.version>1.7.1</slf4j.version>
                 <net.sf.ehcache.configurationResourceName>classpath:ehcache.xml</net.sf.ehcache.configurationResourceName>
             </properties>
+            <dependencies>
+                <!-- EhCache -->
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache${terracotta.ee.suffix}</artifactId>
+                    <version>${ehcache.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.terracotta</groupId>
+                    <artifactId>terracotta-toolkit-runtime${terracotta.ee.suffix}</artifactId>
+                    <version>${toolkit.version}</version>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <id>ehcache-2.10-ee</id>
@@ -231,6 +248,19 @@
                 <slf4j.version>1.7.1</slf4j.version>
                 <net.sf.ehcache.configurationResourceName>classpath:ehcache.xml</net.sf.ehcache.configurationResourceName>
             </properties>
+            <dependencies>
+                <!-- EhCache -->
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache${terracotta.ee.suffix}</artifactId>
+                    <version>${ehcache.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.terracotta</groupId>
+                    <artifactId>terracotta-toolkit-runtime${terracotta.ee.suffix}</artifactId>
+                    <version>${toolkit.version}</version>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 </project>
