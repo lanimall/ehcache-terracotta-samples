@@ -1,21 +1,22 @@
-.DS_Store
-
 # Compiled source #
-###################
-*.com
 *.class
-*.dll
-*.exe
-*.o
-*.so
 bin/
 target/
 out/
-dist/
+build/
 
-##############
-# eclipse #
-##############
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# dev gui (eclipse, intelliJ) #
 .project
 .metadata
 .classpath
@@ -24,16 +25,13 @@ bin/**
 *.tmp
 *.bak
 *.swp
-
-#############
-# intelliJ #
-##############
 .idea
 *.ipr
 *.iml
 .settings
 
-# Package Files #
-*.jar
-*.war
-*.ear
+#log giles
+*.log
+
+#misc
+.DS_Store
