@@ -1,0 +1,24 @@
+# Simple Ehcache 2 Sample with Spring
+
+A couple of examples of how to use Ehcache with Spring.
+
+## Running the samples
+
+### No-Cache
+
+Simple service call that return sample data and use a "sleep" time to mock a long duration call.
+
+ mvn compile exec:exec -P nocache
+
+### Use Ehcache CacheManager natively
+Create Ehcache CacheManager bean and autowire it throughout your app for full cache-usage granularity.
+Instrument the same simple service to use Ehcache, and notice the difference on the >1 iteration of service calls.
+
+  mvn compile exec:exec -P ehcache-native
+
+### Use Spring Cache Abstraction
+Leverage the Cache Spring Abstraction (via spring EhCacheManagerFactoryBean and spring CacheManager beans)
+to use the spring Cache Annotations such as @Cacheable, @CacheEvict, @CachePut, @CacheConfig and etc, as defined in the official [Spring Cache Abstraction documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html)
+Instrument the same simple service with @Cacheable annotation, and notice the difference on the >1 iteration of service calls.
+
+ mvn compile exec:exec -P ehcache-spring-abstraction
