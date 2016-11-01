@@ -17,18 +17,30 @@ build/
 hs_err_pid*
 
 # dev gui (eclipse, intelliJ) #
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
 .project
 .metadata
 .classpath
 .settings/
+.settings
+
 bin/**
 *.tmp
 *.bak
 *.swp
-.idea
-*.ipr
-*.iml
-.settings
 
 #log giles
 *.log
