@@ -99,4 +99,30 @@ public class SurveyResponse implements AuditableColumns, Serializable {
     public void setAuditColumns(AuditColumns auditColumns) {
         this.auditColumns = auditColumns;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SurveyResponse that = (SurveyResponse) o;
+
+        if (answers != null ? !answers.equals(that.answers) : that.answers != null) return false;
+        if (auditColumns != null ? !auditColumns.equals(that.auditColumns) : that.auditColumns != null) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (respondentID != null ? !respondentID.equals(that.respondentID) : that.respondentID != null) return false;
+        if (survey != null ? !survey.equals(that.survey) : that.survey != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (survey != null ? survey.hashCode() : 0);
+        result = 31 * result + (respondentID != null ? respondentID.hashCode() : 0);
+        result = 31 * result + (answers != null ? answers.hashCode() : 0);
+        result = 31 * result + (auditColumns != null ? auditColumns.hashCode() : 0);
+        return result;
+    }
 }

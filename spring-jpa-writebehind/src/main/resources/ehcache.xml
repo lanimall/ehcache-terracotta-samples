@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="ehcache.xsd">
+         xsi:noNamespaceSchemaLocation="ehcache.xsd">
 
-  <diskStore path="java.io.tmpdir"/>
+    <diskStore path="java.io.tmpdir"/>
 
-  <defaultCache
-    maxEntriesLocalHeap="0"
-    eternal="false"
-    timeToIdleSeconds="1200"
-    timeToLiveSeconds="1200">
-  </defaultCache>
+    <defaultCache
+            maxEntriesLocalHeap="0"
+            eternal="false"
+            timeToIdleSeconds="1200"
+            timeToLiveSeconds="1200">
+    </defaultCache>
 
-  <cache name="stringCache"
-         maxEntriesLocalHeap="1000"
-         maxElementsOnDisk="10000"
-         timeToLiveSeconds="60">
-  </cache>
+    <cache name="Surveys"
+           maxEntriesLocalHeap="1000"
+           maxElementsOnDisk="10000"
+           timeToLiveSeconds="60">
+    </cache>
+
+    <cache name="SurveyResponses"
+           maxEntriesLocalHeap="1000"
+           maxElementsOnDisk="10000000"
+           timeToLiveSeconds="60">
+        <cacheDecoratorFactory class="com.github.lanimall.samples.ehcache2.cache.SurveyResponseReadThroughFactory" />
+        <cacheWriter writeMode="write-behind" notifyListenersOnException="true" maxWriteDelay="10" rateLimitPerSecond="5" writeCoalescing="true" writeBatching="true"
+                     writeBatchSize="50" retryAttempts="2" retryAttemptDelaySeconds="2">
+            <cacheWriterFactory class="com.github.lanimall.samples.ehcache2.cache.SurveyResponseWriterFactory"/>
+        </cacheWriter>
+    </cache>
 </ehcache>

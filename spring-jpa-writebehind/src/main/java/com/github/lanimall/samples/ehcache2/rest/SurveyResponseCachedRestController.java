@@ -1,9 +1,5 @@
 package com.github.lanimall.samples.ehcache2.rest;
 
-import com.github.lanimall.samples.ehcache2.dao.SurveyRepository;
-import com.github.lanimall.samples.ehcache2.dao.SurveyResponseRepository;
-import com.github.lanimall.samples.ehcache2.domain.Answer;
-import com.github.lanimall.samples.ehcache2.domain.Question;
 import com.github.lanimall.samples.ehcache2.domain.Survey;
 import com.github.lanimall.samples.ehcache2.domain.SurveyResponse;
 import com.github.lanimall.samples.ehcache2.service.SurveyResponseService;
@@ -16,22 +12,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by fabien.sanglier on 10/31/16.
  */
 
 @RestController
-@RequestMapping("/surveys/{surveyId}/responses")
-public class SurveyResponseRestController {
+@RequestMapping("/surveys/{surveyId}/responses/cached/")
+public class SurveyResponseCachedRestController {
 
     @Autowired
     SurveyService surveyService;
 
     @Autowired
-    @Qualifier("SurveyResponseService")
+    @Qualifier ("SurveyResponseServiceWithCache")
     SurveyResponseService surveyResponseService;
 
     @RequestMapping(method = RequestMethod.POST)

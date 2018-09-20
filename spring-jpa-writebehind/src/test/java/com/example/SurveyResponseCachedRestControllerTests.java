@@ -3,15 +3,11 @@ package com.example;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.lanimall.samples.ehcache2.Application;
-import com.github.lanimall.samples.ehcache2.dao.QuestionRepository;
-import com.github.lanimall.samples.ehcache2.dao.SurveyRepository;
-import com.github.lanimall.samples.ehcache2.dao.SurveyResponseRepository;
 import com.github.lanimall.samples.ehcache2.domain.Answer;
 import com.github.lanimall.samples.ehcache2.domain.Question;
 import com.github.lanimall.samples.ehcache2.domain.Survey;
 import com.github.lanimall.samples.ehcache2.domain.SurveyResponse;
 import com.github.lanimall.samples.ehcache2.service.SurveyBulkInitService;
-import com.github.lanimall.samples.ehcache2.service.SurveyService;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,11 +30,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
@@ -47,7 +42,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
-public class SurveyResponseRestControllerTests {
+public class SurveyResponseCachedRestControllerTests {
 
     private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype(),
@@ -115,7 +110,7 @@ public class SurveyResponseRestControllerTests {
 
     @Test
     public void readSingleSurveyResponseByRespondentId() throws Exception {
-        String uri = String.format("/surveys/%d/responses/respondents/%d", surveys.get(0).getId(), surveyResponses.get(0).getRespondentID());
+        String uri = String.format("/surveys/%d/respondents/%d", surveys.get(0).getId(), surveyResponses.get(0).getRespondentID());
 
         mockMvc.perform(get(uri))
                 .andExpect(status().isOk())

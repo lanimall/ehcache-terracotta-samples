@@ -91,4 +91,32 @@ public class Answer implements AuditableColumns, Serializable {
     public void setAuditColumns(AuditColumns auditColumns) {
         this.auditColumns = auditColumns;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Answer answer = (Answer) o;
+
+        if (answerText != null ? !answerText.equals(answer.answerText) : answer.answerText != null) return false;
+        if (auditColumns != null ? !auditColumns.equals(answer.auditColumns) : answer.auditColumns != null)
+            return false;
+        if (id != null ? !id.equals(answer.id) : answer.id != null) return false;
+        if (question != null ? !question.equals(answer.question) : answer.question != null) return false;
+        if (surveyResponse != null ? !surveyResponse.equals(answer.surveyResponse) : answer.surveyResponse != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (question != null ? question.hashCode() : 0);
+        result = 31 * result + (answerText != null ? answerText.hashCode() : 0);
+        result = 31 * result + (surveyResponse != null ? surveyResponse.hashCode() : 0);
+        result = 31 * result + (auditColumns != null ? auditColumns.hashCode() : 0);
+        return result;
+    }
 }
