@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.6.RELEASE</version>
+    </parent>
+    <artifactId>spring-jaxrs-cxf-ehcache</artifactId>
+    <groupId>org.apache.cxf.samples</groupId>
+    <version>3.1.7</version>
+    <name>Spring Boot CXF REST Application with Ehcache-EE</name>
+    <description>Spring Boot CXF REST Application with Ehcache-EE</description>
+
+    <properties>
+        <cxf.version>3.1.7</cxf.version>
+        <spring-boot.version>1.3.6.RELEASE</spring-boot.version>
+        <ehcache.version />
+        <toolkit.version />
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>ehcache-2.6-ee</id>
+            <properties>
+                <ehcache.version>2.6.8</ehcache.version>
+                <toolkit.version>2.6.8</toolkit.version>
+                <net.sf.ehcache.configurationResourceName>classpath:ehcache3x.xml</net.sf.ehcache.configurationResourceName>
+                <com.tc.productkey.path>${user.home}/terracotta-license-3x.key</com.tc.productkey.path>
+            </properties>
+            <dependencies>
+                <!-- EhCache -->
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache-core-ee</artifactId>
+                    <version>${ehcache.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache-terracotta-ee</artifactId>
+                    <version>${toolkit.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>ehcache-2.10-ee</id>
+            <properties>
+                <!--<ehcache.version>2.10.3.1.12</ehcache.version>-->
+                <!--<toolkit.version>4.3.3.1.10</toolkit.version>-->
+                <ehcache.version>2.10.4.1.4</ehcache.version>
+                <toolkit.version>4.3.4.1.4</toolkit.version>
+                <net.sf.ehcache.configurationResourceName>classpath:ehcache4x.xml</net.sf.ehcache.configurationResourceName>
+                <com.tc.productkey.path>${user.home}/terracotta-license.key</com.tc.productkey.path>
+            </properties>
+            <dependencies>
+                <!-- EhCache -->
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache-ee</artifactId>
+                    <version>${ehcache.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.terracotta</groupId>
+                    <artifactId>terracotta-toolkit-runtime-ee</artifactId>
+                    <version>${toolkit.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>ehcache-2.10-ee-jaxrsmod</id>
+            <properties>
+                <ehcache.version>2.10.3.1.12</ehcache.version>
+                <toolkit.version>4.3.3.1.10</toolkit.version>
+                <net.sf.ehcache.configurationResourceName>classpath:ehcache4x.xml</net.sf.ehcache.configurationResourceName>
+                <com.tc.productkey.path>${user.home}/terracotta-license.key</com.tc.productkey.path>
+            </properties>
+            <dependencies>
+                <!-- EhCache -->
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache-ee-jaxrsmod</artifactId>
+                    <version>${ehcache.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.terracotta</groupId>
+                    <artifactId>terracotta-toolkit-runtime-ee</artifactId>
+                    <version>${toolkit.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>ehcache-2.10-oss</id>
+            <properties>
+                <ehcache.version>2.10.2</ehcache.version>
+                <toolkit.version>4.3.2</toolkit.version>
+                <net.sf.ehcache.configurationResourceName>classpath:ehcache4x.xml</net.sf.ehcache.configurationResourceName>
+                <com.tc.productkey.path>${user.home}/terracotta-license.key</com.tc.productkey.path>
+            </properties>
+            <dependencies>
+                <!-- EhCache -->
+                <dependency>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache</artifactId>
+                    <version>${ehcache.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.terracotta</groupId>
+                    <artifactId>terracotta-toolkit-runtime</artifactId>
+                    <version>${toolkit.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>server</id>
+            <build>
+                <defaultGoal>spring-boot:run</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <jvmArguments>-Xms512m -Xmx512m -XX:MaxDirectMemorySize=1G
+                                -Dterracotta.config.url=aws_tc:9510,aws_tc:9610
+                                -Dcom.tc.productkey.path=${com.tc.productkey.path}
+                                -Dehcache.config.path=${net.sf.ehcache.configurationResourceName}
+                            </jvmArguments>
+                            <mainClass>sample.rs.service.SampleRestApplication</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>client</id>
+            <build>
+                <defaultGoal>spring-boot:run</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <mainClass>sample.rs.client.SampleRestClientApplication</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
